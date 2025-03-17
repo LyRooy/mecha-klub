@@ -1,0 +1,423 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #313234;
+    height: 75px;
+    width: 100%;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav > a {
+    max-width: 100%;
+    height: auto;
+}
+
+header > nav {
+    display: flex;
+    justify-content: flex-start; /* Wyrównanie elementów do lewej strony */
+    align-items: center; /* Wyrównanie elementów w pionie */
+    height: 50px; /* Ustaw wysokość dla kontenera nawigacji */
+}
+
+header > nav ul {
+    display: flex;
+    padding: 0;
+    list-style-type: none;
+}
+
+header > nav ul > li {
+    margin-left: 20px;
+}
+
+header > nav ul > li > a {
+    line-height: 20px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+header > nav ul > li > a:hover {
+    color: #00cadf;
+}
+
+/* Styl logo */
+header > nav img {
+    width: 110px; /* Szerokość logo */
+    height: 50px; /* Wysokość logo */
+    margin-top: 2%; 
+}
+
+/* Styl napisu */
+header > nav #nazwa_logotyp {
+    color: #555; /* Kolor tekstu */
+    height: 50px; /* Wysokość odpowiadająca wysokości logo */
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 200%; /* Powiększenie tekstu */
+    text-shadow: 2px 2px 0 gainsboro, -2px -2px 0 gainsboro, 2px -2px 0 gainsboro, -2px 2px 0 gainsboro; /* Efekt cienia tekstu */
+    display: flex;
+    align-items: center; /* Wyrównanie tekstu w pionie */
+    margin-left: 15px; /* Mały odstęp od logo */
+    margin-top: 2%;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slogan {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    max-width: 800px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: left;
+    padding: 20px;
+}
+
+.slogan h1 {
+    font-weight: lighter;
+    margin: 0;
+    line-height: 1;
+}
+
+.slogan > p {
+    font-size: 23px;
+    margin: 0;
+    font-weight: bolder;
+    line-height: 1;
+}
+
+section > .container {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.icon-container {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.icon-square {
+    background-color: black;
+    border-radius: 15%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+.icon-square i {
+    color: white;
+    font-size: 40px;
+}
+
+.tytuly{
+    text-align: center;
+}
+
+.uslugi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cennik{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.middle-icon{
+    background-color: #00cadf;
+}
+.blue-title{
+    color: #00cadf;
+}
+
+.icon-text {
+    background-color: white;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0px;
+}
+
+.col-2 {
+    flex: 1;  /* Każdy element w rzędzie zajmuje 1/4 przestrzeni */
+    text-align: center;
+}
+
+/*
+.informacje p{
+    text-align: justify;
+}
+*/
+
+/* Zmiana dla środkowej kolumny */
+.col-2:nth-child(2) {
+    align-self: center; /* Wyrównuje środkową ikonę pionowo */
+}
+/* GALERIA */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr); /* 12 kolumn w układzie siatki */
+    gap: 0px; /* Odstępy między zdjęciami */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery .item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery .large {
+    grid-column: span 6; /* Duże zdjęcia zajmują 6 kolumn */
+    height: 200px;
+    width: 100%;
+}
+
+.gallery .small {
+    grid-column: span 3; /* Małe zdjęcia zajmują 3 kolumny */
+    height: 200px;
+    width: 100%;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Layer z ikonami */
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.layer .icon {
+    margin: 0 10px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.layer .icon:hover {
+    color: #ff9900; /* Zmiana koloru po najechaniu */
+}
+
+.item:hover .layer {
+    opacity: 1;
+    visibility: visible;
+}
+/*LICZBY*/
+.numbers-section {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.number-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.number {
+    font-size: 40px;  /* Większe liczby */
+    font-weight: bold;
+    color: black;
+}
+
+.label {
+    font-size: 16px;  /* Mniejsze podpisy */
+    color: #00cadf;  /* Niebieski kolor */
+    margin-top: 5px;
+}
+/* FOOTER */
+/* Ogólny styl stopki */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 0;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Kontener dla kolumn */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Umożliwia elastyczne rozmieszczenie kolumn na mniejszych ekranach */
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Kolumny */
+.footer-column {
+    flex: 1;
+    padding: 0 15px;
+    min-width: 250px; /* Zmniejszamy minimalną szerokość dla lepszego dopasowania na małych ekranach */
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* Nagłówki kolumn */
+.footer-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-title h3 {
+    margin: 0;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.footer-title .title-line {
+    flex: 1;
+    height: 2px;
+    background-color: #555;
+    margin-left: 10px;
+}
+
+/* Treść kolumn */
+.footer-column p {
+    margin: 0 0 10px;
+    line-height: 1.6;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* GET IN TOUCH: Układ z dwiema kolumnami */
+.rowfoot {
+    display: grid;
+    grid-template-columns: 100px auto; /* Dwie kolumny: 100px i reszta miejsca */
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.o_nas{
+    text-align: justify;
+}
+
+.rowfoot p {
+    margin: 0;
+}
+
+.rowfoot p:nth-child(odd){
+    font-weight: bold;
+}
+
+/* Media społecznościowe */
+.social-icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    background-color: #00cadf;
+    color: #fff;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #09aabc;
+}
+
+/* Dolna sekcja */
+.footer-bottom {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: 30px;
+    border-top: 1px solid #555;
+    font-size: 13px;
+    color: #aaa;
+    text-align: center; /* Wycentrowany tekst */
+    background-color: #222;
+}
+
+/* RESPONSYWNOŚĆ - dostosowanie na małych ekranach */
+
+/* Zmniejszenie czcionki w stopce */
+@media (max-width: 768px) {
+    footer {
+        font-size: 12px;
+    }
+
+    .footer-container {
+        padding: 0 10px; /* Mniejsze odstępy na małych ekranach */
+    }
+
+    .footer-column {
+        min-width: 100%; /* Kolumny będą się rozciągały na całą szerokość na małych ekranach */
+        margin-top: 20px;
+        text-align: center; /* Tekst w stopce wycentrowany */
+    }
+
+    .rowfoot {
+        grid-template-columns: 1fr; /* Jedna kolumna dla kontaktu */
+    }
+
+    .social-icons {
+        justify-content: center; /* Centrujemy ikony na małych ekranach */
+    }
+}
+
