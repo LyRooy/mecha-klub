@@ -2,6 +2,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Zapobiega poziomemu przewijaniu */
 }
 
 header {
@@ -15,6 +16,8 @@ header {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 15px; /* Dodajemy padding, aby elementy nie były przyklejone do krawędzi */
+    box-sizing: border-box;
 }
 
 header > nav {
@@ -22,6 +25,8 @@ header > nav {
     justify-content: space-between;
     align-items: center;
     height: 75px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .logo-container {
@@ -75,15 +80,24 @@ header > nav ul.menu > li > a:hover {
     color: #fff;
     cursor: pointer;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Odstęp między ikoną a napisem */
+}
+
+.hamburger-text {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #fff;
 }
 
 @media (max-width: 768px) {
     .hamburger {
-        display: block;
+        display: flex;
     }
 
     header > nav ul.menu {
-        display: none;
+        display: none !important; /* Upewniamy się, że menu jest ukryte */
         flex-direction: column;
         position: absolute;
         top: 75px;
@@ -96,15 +110,18 @@ header > nav ul.menu > li > a:hover {
     }
 
     header > nav ul.menu.active {
-        display: flex;
+        display: flex !important;
     }
 
     header > nav ul.menu > li {
         margin: 10px 0;
+        width: 100%;
     }
 
     header > nav ul.menu > li > a {
         font-size: 16px;
+        display: block;
+        padding: 10px;
     }
 
     header > nav #nazwa_logotyp {
@@ -158,6 +175,29 @@ header > nav ul.menu > li > a:hover {
     line-height: 1;
 }
 
+/* Responsywność dla sekcji hero */
+@media (max-width: 768px) {
+    .hero {
+        height: 250px; /* Zmniejszamy wysokość na małych ekranach */
+    }
+
+    .slogan {
+        max-width: 100%; /* Pełna szerokość na małych ekranach */
+        padding: 15px;
+        right: 0;
+        left: 0;
+        text-align: center;
+    }
+
+    .slogan h1 {
+        font-size: 24px; /* Mniejszy nagłówek */
+    }
+
+    .slogan > p {
+        font-size: 18px; /* Mniejszy tekst */
+    }
+}
+
 section > .container {
     margin: 50px auto;
     text-align: center;
@@ -185,26 +225,27 @@ section > .container {
     font-size: 40px;
 }
 
-.tytuly{
+.tytuly {
     text-align: center;
 }
 
-.uslugi{
+.uslugi {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.cennik{
+.cennik {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.middle-icon{
+.middle-icon {
     background-color: #00cadf;
 }
-.blue-title{
+
+.blue-title {
     color: #00cadf;
 }
 
@@ -220,26 +261,38 @@ section > .container {
     gap: 0px;
 }
 
+/* Responsywność dla sekcji z ikonami */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column; /* Ustawiamy elementy w pionie */
+        gap: 20px; /* Dodajemy odstęp między elementami */
+    }
+
+    .col-2 {
+        flex: none; /* Usuwamy flex: 1, aby elementy zajmowały pełną szerokość */
+        width: 100%; /* Pełna szerokość na małych ekranach */
+    }
+
+    .col-2:nth-child(2) {
+        align-self: auto; /* Usuwamy wyrównanie środkowe */
+    }
+}
+
 .col-2 {
-    flex: 1;  /* Każdy element w rzędzie zajmuje 1/4 przestrzeni */
+    flex: 1;
     text-align: center;
 }
 
-/*
-.informacje p{
-    text-align: justify;
-}
-*/
-
 /* Zmiana dla środkowej kolumny */
 .col-2:nth-child(2) {
-    align-self: center; /* Wyrównuje środkową ikonę pionowo */
+    align-self: center;
 }
+
 /* GALERIA */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(18, 1fr); /* 12 kolumn w układzie siatki */
-    gap: 0px; /* Odstępy między zdjęciami */
+    grid-template-columns: repeat(18, 1fr);
+    gap: 0px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -251,13 +304,13 @@ section > .container {
 }
 
 .gallery .large {
-    grid-column: span 6; /* Duże zdjęcia zajmują 6 kolumn */
+    grid-column: span 6;
     height: 200px;
     width: 100%;
 }
 
 .gallery .small {
-    grid-column: span 3; /* Małe zdjęcia zajmują 3 kolumny */
+    grid-column: span 3;
     height: 200px;
     width: 100%;
 }
@@ -269,6 +322,24 @@ section > .container {
     display: block;
 }
 
+/* Responsywność dla galerii */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolumny na małych ekranach */
+        gap: 10px;
+    }
+
+    .gallery .large {
+        grid-column: span 2; /* Duże zdjęcia zajmują 2 kolumny */
+        height: 150px;
+    }
+
+    .gallery .small {
+        grid-column: span 1; /* Małe zdjęcia zajmują 1 kolumnę */
+        height: 150px;
+    }
+}
+
 /* Layer z ikonami */
 .layer {
     position: absolute;
@@ -276,7 +347,7 @@ section > .container {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło */
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -294,14 +365,15 @@ section > .container {
 }
 
 .layer .icon:hover {
-    color: #ff9900; /* Zmiana koloru po najechaniu */
+    color: #ff9900;
 }
 
 .item:hover .layer {
     opacity: 1;
     visibility: visible;
 }
-/*LICZBY*/
+
+/* LICZBY */
 .numbers-section {
     margin-top: 50px;
     text-align: center;
@@ -313,18 +385,37 @@ section > .container {
 }
 
 .number {
-    font-size: 40px;  /* Większe liczby */
+    font-size: 40px;
     font-weight: bold;
     color: black;
 }
 
 .label {
-    font-size: 16px;  /* Mniejsze podpisy */
-    color: #00cadf;  /* Niebieski kolor */
+    font-size: 16px;
+    color: #00cadf;
     margin-top: 5px;
 }
+
+/* Responsywność dla sekcji liczb */
+@media (max-width: 768px) {
+    .numbers-section {
+        margin-top: 30px;
+    }
+
+    .number-container {
+        margin: 10px;
+    }
+
+    .number {
+        font-size: 30px; /* Mniejsze liczby */
+    }
+
+    .label {
+        font-size: 14px; /* Mniejsze podpisy */
+    }
+}
+
 /* FOOTER */
-/* Ogólny styl stopki */
 footer {
     background-color: #333;
     color: #fff;
@@ -333,10 +424,9 @@ footer {
     margin: 0;
 }
 
-/* Kontener dla kolumn */
 .footer-container {
     display: flex;
-    flex-wrap: wrap; /* Umożliwia elastyczne rozmieszczenie kolumn na mniejszych ekranach */
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
     max-width: 1200px;
@@ -344,17 +434,15 @@ footer {
     padding: 0 20px;
 }
 
-/* Kolumny */
 .footer-column {
     flex: 1;
     padding: 0 15px;
-    min-width: 250px; /* Zmniejszamy minimalną szerokość dla lepszego dopasowania na małych ekranach */
+    min-width: 250px;
     text-align: left;
     margin-top: 30px;
     margin-bottom: 20px;
 }
 
-/* Nagłówki kolumn */
 .footer-title {
     display: flex;
     align-items: center;
@@ -374,7 +462,6 @@ footer {
     margin-left: 10px;
 }
 
-/* Treść kolumn */
 .footer-column p {
     margin: 0 0 10px;
     line-height: 1.6;
@@ -382,15 +469,14 @@ footer {
     margin-bottom: 10px;
 }
 
-/* GET IN TOUCH: Układ z dwiema kolumnami */
 .rowfoot {
     display: grid;
-    grid-template-columns: 100px auto; /* Dwie kolumny: 100px i reszta miejsca */
+    grid-template-columns: 100px auto;
     gap: 10px;
     align-items: flex-start;
 }
 
-.o_nas{
+.o_nas {
     text-align: justify;
 }
 
@@ -398,11 +484,10 @@ footer {
     margin: 0;
 }
 
-.rowfoot p:nth-child(odd){
+.rowfoot p:nth-child(odd) {
     font-weight: bold;
 }
 
-/* Media społecznościowe */
 .social-icons {
     display: flex;
     justify-content: flex-start;
@@ -427,7 +512,6 @@ footer {
     background-color: #09aabc;
 }
 
-/* Dolna sekcja */
 .footer-bottom {
     margin: 0;
     box-sizing: border-box;
@@ -437,34 +521,35 @@ footer {
     border-top: 1px solid #555;
     font-size: 13px;
     color: #aaa;
-    text-align: center; /* Wycentrowany tekst */
+    text-align: center;
     background-color: #222;
 }
 
-/* RESPONSYWNOŚĆ - dostosowanie na małych ekranach */
-
-/* Zmniejszenie czcionki w stopce */
+/* Responsywność dla stopki */
 @media (max-width: 768px) {
     footer {
         font-size: 12px;
     }
 
     .footer-container {
-        padding: 0 10px; /* Mniejsze odstępy na małych ekranach */
+        padding: 0 10px;
     }
 
     .footer-column {
-        min-width: 100%; /* Kolumny będą się rozciągały na całą szerokość na małych ekranach */
+        min-width: 100%;
         margin-top: 20px;
-        text-align: center; /* Tekst w stopce wycentrowany */
+        text-align: center;
     }
 
     .rowfoot {
-        grid-template-columns: 1fr; /* Jedna kolumna dla kontaktu */
+        grid-template-columns: 1fr;
     }
 
     .social-icons {
-        justify-content: center; /* Centrujemy ikony na małych ekranach */
+        justify-content: center;
+    }
+
+    .o_nas {
+        text-align: center; /* Centrujemy tekst w sekcji "O nas" */
     }
 }
-
