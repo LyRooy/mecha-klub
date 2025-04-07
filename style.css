@@ -4,6 +4,85 @@ body {
     padding: 0;
 }
 
+/* Styl dla hamburgera */
+.hamburger {
+    display: none; /* Domyślnie ukryty na dużych ekranach */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Kontener logo dla lepszej organizacji */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Poprawki w nawigacji */
+header > nav {
+    display: flex;
+    justify-content: space-between; /* Logo po lewej, menu/hamburger po prawej */
+    align-items: center;
+    height: 75px; /* Dopasowanie do wysokości headera */
+}
+
+header > nav ul.menu {
+    display: flex;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+header > nav ul.menu > li {
+    margin-left: 20px;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Pokazujemy hamburger na małych ekranach */
+    }
+
+    header > nav ul.menu {
+        display: none; /* Domyślnie ukryte menu na małych ekranach */
+        flex-direction: column; /* Menu w pionie */
+        position: absolute;
+        top: 75px; /* Pod headerem */
+        left: 0;
+        width: 100%;
+        background-color: #313234;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    header > nav ul.menu.active {
+        display: flex; /* Pokazujemy menu po kliknięciu */
+    }
+
+    header > nav ul.menu > li {
+        margin: 10px 0; /* Odstępy między elementami w pionie */
+    }
+
+    header > nav ul.menu > li > a {
+        font-size: 16px;
+    }
+
+    /* Dopasowanie logo i nazwy na małych ekranach */
+    header > nav #nazwa_logotyp {
+        font-size: 150%; /* Mniejsza czcionka na mobilnych */
+        margin-left: 10px;
+    }
+
+    header > nav img {
+        width: 80px; /* Mniejsze logo */
+        height: 40px;
+    }
+}
+
 header {
     background-color: #313234;
     height: 75px;
@@ -22,12 +101,7 @@ nav > a {
     height: auto;
 }
 
-header > nav {
-    display: flex;
-    justify-content: flex-start; /* Wyrównanie elementów do lewej strony */
-    align-items: center; /* Wyrównanie elementów w pionie */
-    height: 50px; /* Ustaw wysokość dla kontenera nawigacji */
-}
+
 
 header > nav ul {
     display: flex;
