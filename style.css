@@ -73,14 +73,13 @@ header > nav ul.menu > li > a:hover {
 }
 
 .hamburger {
-    display: none;
+    display: none; /* Domyślnie ukryty na dużych ekranach */
     background: none;
     border: none;
     font-size: 24px;
     color: #fff;
     cursor: pointer;
     padding: 10px;
-    display: flex;
     align-items: center;
     gap: 8px;
 }
@@ -93,11 +92,11 @@ header > nav ul.menu > li > a:hover {
 
 @media (max-width: 768px) {
     .hamburger {
-        display: flex;
+        display: flex; /* Pokazujemy hamburger na małych ekranach */
     }
 
     header > nav ul.menu {
-        display: none !important;
+        display: none !important; /* Ukrywamy menu na małych ekranach */
         flex-direction: column;
         position: absolute;
         top: 75px;
@@ -110,7 +109,7 @@ header > nav ul.menu > li > a:hover {
     }
 
     header > nav ul.menu.active {
-        display: flex !important;
+        display: flex !important; /* Pokazujemy menu po kliknięciu */
     }
 
     header > nav ul.menu > li {
@@ -416,7 +415,7 @@ footer {
     padding: 0;
     font-size: 14px;
     margin: 0;
-    width: 100%; /* Upewniamy się, że stopka zajmuje pełną szerokość */
+    width: 100%;
 }
 
 .footer-container {
@@ -427,7 +426,7 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    width: 100%; /* Upewniamy się, że kontener zajmuje pełną szerokość */
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -522,16 +521,15 @@ footer {
     background-color: #222;
 }
 
-/* Responsywność dla stopki */
 @media (max-width: 768px) {
     footer {
         font-size: 12px;
-        width: 100%; /* Upewniamy się, że stopka zajmuje pełną szerokość */
+        width: 100%;
     }
 
     .footer-container {
         padding: 0 10px;
-        width: 100%; /* Pełna szerokość */
+        width: 100%;
     }
 
     .footer-column {
@@ -550,10 +548,10 @@ footer {
 
     .o_nas {
         text-align: center;
-        font-size: 14px; /* Mniejsza czcionka dla lepszej czytelności */
-        line-height: 1.8; /* Większy odstęp między liniami */
-        padding: 0 10px; /* Dodajemy padding, aby tekst nie był przyklejony do krawędzi */
-        word-break: break-word; /* Umożliwiamy zawijanie długich słów */
-        hyphens: auto; /* Automatyczne dzielenie słów */
+        font-size: 14px;
+        line-height: 1.8;
+        padding: 0 10px;
+        word-break: break-word;
+        hyphens: auto;
     }
 }
