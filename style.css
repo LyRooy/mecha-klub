@@ -2,7 +2,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Zapobiega poziomemu przewijaniu */
+    overflow-x: hidden;
 }
 
 header {
@@ -16,7 +16,7 @@ header {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px; /* Dodajemy padding, aby elementy nie były przyklejone do krawędzi */
+    padding: 0 15px;
     box-sizing: border-box;
 }
 
@@ -82,7 +82,7 @@ header > nav ul.menu > li > a:hover {
     padding: 10px;
     display: flex;
     align-items: center;
-    gap: 8px; /* Odstęp między ikoną a napisem */
+    gap: 8px;
 }
 
 .hamburger-text {
@@ -97,7 +97,7 @@ header > nav ul.menu > li > a:hover {
     }
 
     header > nav ul.menu {
-        display: none !important; /* Upewniamy się, że menu jest ukryte */
+        display: none !important;
         flex-direction: column;
         position: absolute;
         top: 75px;
@@ -175,14 +175,13 @@ header > nav ul.menu > li > a:hover {
     line-height: 1;
 }
 
-/* Responsywność dla sekcji hero */
 @media (max-width: 768px) {
     .hero {
-        height: 250px; /* Zmniejszamy wysokość na małych ekranach */
+        height: 250px;
     }
 
     .slogan {
-        max-width: 100%; /* Pełna szerokość na małych ekranach */
+        max-width: 100%;
         padding: 15px;
         right: 0;
         left: 0;
@@ -190,11 +189,11 @@ header > nav ul.menu > li > a:hover {
     }
 
     .slogan h1 {
-        font-size: 24px; /* Mniejszy nagłówek */
+        font-size: 24px;
     }
 
     .slogan > p {
-        font-size: 18px; /* Mniejszy tekst */
+        font-size: 18px;
     }
 }
 
@@ -261,20 +260,19 @@ section > .container {
     gap: 0px;
 }
 
-/* Responsywność dla sekcji z ikonami */
 @media (max-width: 768px) {
     .row {
-        flex-direction: column; /* Ustawiamy elementy w pionie */
-        gap: 20px; /* Dodajemy odstęp między elementami */
+        flex-direction: column;
+        gap: 20px;
     }
 
     .col-2 {
-        flex: none; /* Usuwamy flex: 1, aby elementy zajmowały pełną szerokość */
-        width: 100%; /* Pełna szerokość na małych ekranach */
+        flex: none;
+        width: 100%;
     }
 
     .col-2:nth-child(2) {
-        align-self: auto; /* Usuwamy wyrównanie środkowe */
+        align-self: auto;
     }
 }
 
@@ -283,7 +281,6 @@ section > .container {
     text-align: center;
 }
 
-/* Zmiana dla środkowej kolumny */
 .col-2:nth-child(2) {
     align-self: center;
 }
@@ -322,25 +319,23 @@ section > .container {
     display: block;
 }
 
-/* Responsywność dla galerii */
 @media (max-width: 768px) {
     .gallery {
-        grid-template-columns: repeat(2, 1fr); /* 2 kolumny na małych ekranach */
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 
     .gallery .large {
-        grid-column: span 2; /* Duże zdjęcia zajmują 2 kolumny */
+        grid-column: span 2;
         height: 150px;
     }
 
     .gallery .small {
-        grid-column: span 1; /* Małe zdjęcia zajmują 1 kolumnę */
+        grid-column: span 1;
         height: 150px;
     }
 }
 
-/* Layer z ikonami */
 .layer {
     position: absolute;
     top: 0;
@@ -396,7 +391,6 @@ section > .container {
     margin-top: 5px;
 }
 
-/* Responsywność dla sekcji liczb */
 @media (max-width: 768px) {
     .numbers-section {
         margin-top: 30px;
@@ -407,11 +401,11 @@ section > .container {
     }
 
     .number {
-        font-size: 30px; /* Mniejsze liczby */
+        font-size: 30px;
     }
 
     .label {
-        font-size: 14px; /* Mniejsze podpisy */
+        font-size: 14px;
     }
 }
 
@@ -422,6 +416,7 @@ footer {
     padding: 0;
     font-size: 14px;
     margin: 0;
+    width: 100%; /* Upewniamy się, że stopka zajmuje pełną szerokość */
 }
 
 .footer-container {
@@ -432,6 +427,8 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%; /* Upewniamy się, że kontener zajmuje pełną szerokość */
+    box-sizing: border-box;
 }
 
 .footer-column {
@@ -469,15 +466,15 @@ footer {
     margin-bottom: 10px;
 }
 
+.o_nas {
+    text-align: justify;
+}
+
 .rowfoot {
     display: grid;
     grid-template-columns: 100px auto;
     gap: 10px;
     align-items: flex-start;
-}
-
-.o_nas {
-    text-align: justify;
 }
 
 .rowfoot p {
@@ -529,10 +526,12 @@ footer {
 @media (max-width: 768px) {
     footer {
         font-size: 12px;
+        width: 100%; /* Upewniamy się, że stopka zajmuje pełną szerokość */
     }
 
     .footer-container {
         padding: 0 10px;
+        width: 100%; /* Pełna szerokość */
     }
 
     .footer-column {
@@ -550,6 +549,11 @@ footer {
     }
 
     .o_nas {
-        text-align: center; /* Centrujemy tekst w sekcji "O nas" */
+        text-align: center;
+        font-size: 14px; /* Mniejsza czcionka dla lepszej czytelności */
+        line-height: 1.8; /* Większy odstęp między liniami */
+        padding: 0 10px; /* Dodajemy padding, aby tekst nie był przyklejony do krawędzi */
+        word-break: break-word; /* Umożliwiamy zawijanie długich słów */
+        hyphens: auto; /* Automatyczne dzielenie słów */
     }
 }
