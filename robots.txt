@@ -1,4 +1,4 @@
 User-Agent: *
 Disallow:
 
-Sitemap: https://mklub.scoffers.xyz/sitemap.xml
+Sitemap: https://lyrooy.github.io/mecha-klub/sitemap.xml
